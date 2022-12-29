@@ -206,6 +206,8 @@ Eigen::Matrix<T,4,1> deltaQuat( Eigen::Matrix<T,3,1> &deltaTheta )
     r.head(3) = deltaq;
     r(3) = T(1.0);
 
+    r = r / r.norm();
+
     return r;
 }
 
@@ -293,7 +295,7 @@ inline Eigen::Matrix<T,4,4> quatRightComp( const Eigen::Matrix<T,4,1> q )
 
 
 template<typename T>
-Eigen::Matrix<T,4,1> quatMult( const Eigen::Matrix<T,4,1> q,const Eigen::Matrix<T,4,1> p)
+Eigen::Matrix<T,4,1>quatMult( const Eigen::Matrix<T,4,1> q,const Eigen::Matrix<T,4,1> p)
 {
     Eigen::Matrix<T,4,1> qplus_p;
     // p0*q3 + p1*q2 - p2*q1 + p3*q0

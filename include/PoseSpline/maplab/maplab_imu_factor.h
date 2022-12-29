@@ -356,10 +356,10 @@ class IntegrationBase{
 
             const double kNanoSecondsToSeconds = 1e-9;
             for (int j = 1; j < imu_data.cols(); j ++) {
-                Eigen::Vector3d accel = imu_data.at(j).head<3>();
-                Eigen::Vector3d gyro = imu_data.at(j).tail<3>();
+                Eigen::Vector3d accel = imu_data.col(j).head<3>();
+                Eigen::Vector3d gyro = imu_data.col(j).tail<3>();
                 const double delta_time_seconds =
-                    (imu_timestamps(0, i ) - imu_timestamps(0, i-1)) *
+                    (imu_timestamps(0, j) - imu_timestamps(0, j-1)) *
                     kNanoSecondsToSeconds;
                 pre_integration_->push_back(delta_time_seconds, accel, gyro);
             }

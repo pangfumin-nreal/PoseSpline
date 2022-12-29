@@ -102,6 +102,10 @@ add_executable(test_JPL_imu_factor test/test_JPL_imu_factor.cpp)
 target_link_libraries(test_JPL_imu_factor ${PROJECT_NAME}  -lpthread -lm)
 
 
+add_executable(test_JPL_vs_hamilton test/test_JPL_vs_hamilton.cpp)
+target_link_libraries(test_JPL_vs_hamilton ${PROJECT_NAME}  -lpthread -lm)
+
+
 add_executable(testPoseSplineSampleTemporalError test/testPoseSplineSampleTemporalError.cpp)
 target_link_libraries(testPoseSplineSampleTemporalError ${PROJECT_NAME}  -lpthread -lm)
 add_executable(testPoseSplineSampleError test/testPoseSplineSampleError.cpp)
